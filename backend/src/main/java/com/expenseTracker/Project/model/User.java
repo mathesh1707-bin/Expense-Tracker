@@ -1,5 +1,6 @@
 package com.expenseTracker.Project.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,16 +14,18 @@ public class User {
     private String username;
     private String email;
     private String password;
-
+    private String role;
     public User() {
     }
 
-    public User(String username, String password,String email) {
+    public User(String username, String password, String email,String role) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
+    @Column
     public Long getId() {
         return id;
     }
@@ -39,6 +42,10 @@ public class User {
         return password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -51,6 +58,9 @@ public class User {
         this.password = password;
     }
 
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     
 }
