@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.expenseTracker.Project.dto.req.UserRequestDTO;
 import com.expenseTracker.Project.model.User;
 import com.expenseTracker.Project.service.UserService;
 
@@ -27,7 +28,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Object> createUser(@RequestBody User user) {
+    public ResponseEntity<Object> createUser(@RequestBody UserRequestDTO user) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.createUser(user));
     }
     @GetMapping

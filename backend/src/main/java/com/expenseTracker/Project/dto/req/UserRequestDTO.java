@@ -1,9 +1,7 @@
 package com.expenseTracker.Project.dto.req;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 
 @Getter
@@ -12,7 +10,7 @@ import lombok.Setter;
 
 public class UserRequestDTO {
     private String username;
-    private String email;
+    
     private String password;
     private String role;
 

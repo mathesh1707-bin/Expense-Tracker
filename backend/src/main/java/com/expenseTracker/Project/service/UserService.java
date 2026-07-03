@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.expenseTracker.Project.dto.req.UserRequestDTO;
+import com.expenseTracker.Project.dto.res.UserResponeDTO;
 import com.expenseTracker.Project.model.User;
 import com.expenseTracker.Project.repository.UserRepository;
 
@@ -16,8 +18,15 @@ public class UserService {
     }
 
     //Post
-    public User createUser(User user) {
-        return repo.save(user);
+    public UserResponeDTO createUser(UserRequestDTO req) {
+        User user = new User();
+        user.setUsername(req.getUsername());
+        user.setPassword(req.getPassword());
+        user.setRole(req.getRole());
+        User savedUser = repo.save(user);
+         return UserResponeDTO.builder().username(savedUser.getUsername()).password(savedUser.getPassword())
+                .role(savedUser.getRole()).build();
+
     }
     //Get
     public List<User> getUsers() {
